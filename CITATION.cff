@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: "honestbench: measure your CI's escape rate"
+abstract: >-
+  measure your CI's escape rate
+authors:
+  - family-names: Harris
+    given-names: Nick
+repository-code: "https://github.com/nickharris808/honestbench"
+url: "https://github.com/nickharris808/honestbench"
+license: Apache-2.0
+type: software
+keywords:
+  - verification
+  - abstention
+  - reproducibility

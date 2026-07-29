@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "honestbench"
+version = "0.2.0"
+description = "Make a green pipeline attest correctness, not just internal consistency. Five dependency-free evidence-honesty primitives."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "honestbench contributors" }]
+keywords = ["testing", "evidence", "reproducibility", "audit", "mutation-testing", "benchmarks"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Testing",
+  "Topic :: Software Development :: Quality Assurance",
+]
+# Deliberately zero runtime dependencies. A bound you cannot compute on a bare
+# interpreter is a bound nobody checks.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+honestbench = "honestbench.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/nickharris808/honestbench"
+Issues = "https://github.com/nickharris808/honestbench/issues"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.cold_install]
+# Run OUT OF TREE after install: proves the wheel carries the package data this tool
+# needs, which `--help` cannot show.
+smoke = ["selftest"]
