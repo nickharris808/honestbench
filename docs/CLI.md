@@ -118,5 +118,5 @@ A bound needs trials. With n = 0 the honest bound is 1.0. Pass the number you ac
 
 ## The rest of the portfolio
 
-This tool is one of 19. See the README's portfolio table, or
+This tool is one of 20. See the README's portfolio table, or
 <https://github.com/nickharris808>.
